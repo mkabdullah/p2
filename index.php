@@ -21,9 +21,9 @@
     $add_number = isset($_POST['add_number']) ? $_POST['add_number'] : 'off';
     $add_symbol = isset($_POST['add_symbol']) ? $_POST['add_symbol'] : 'off';
 
-    echo $number_of_words.'<br>';
-    echo $add_number.'<br>';
-    echo $add_symbol.'<br>';
+    // echo $number_of_words.'<br>';
+    // echo $add_number.'<br>';
+    // echo $add_symbol.'<br>';
 
     // if(isset($_POST['number_of_words']))
     //   echo $_POST["number_of_words"].'<br>';
@@ -37,7 +37,10 @@
   ?>
 
   <div class="container">
-    <?php generate_xkcd_password($number_of_words); ?>
+    <?php
+      $result = generate_xkcd_password($number_of_words);
+      echo $result.'<br>';
+    ?>
     <form method='POST' action='index.php'>
       <label for='number_of_words'># of Words</label>
       <input maxlength=1 type='text' name='number_of_words' id='number_of_words'

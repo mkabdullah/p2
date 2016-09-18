@@ -7,14 +7,16 @@ function generate_xkcd_password($number_of_words)
 {
   if(!is_numeric($number_of_words))
   {
-    echo 'Number of words input should be numeric! <br>';
-    return;
+    //echo 'Number of words input should be numeric! <br>';
+    //return
+    return 'Number of words input should be numeric!';
   }
 
   if($number_of_words < 1 || $number_of_words > 9)
   {
-    echo 'Number of words input should be between 1 & 9! <br>';
-    return;
+    // echo 'Number of words input should be between 1 & 9! <br>';
+    // return;
+    return 'Number of words input should be between 1 & 9!';
   }
 
 
@@ -28,12 +30,16 @@ function generate_xkcd_password($number_of_words)
     $line = strtolower($lines[rand(0, count($lines) - 1)]);
     if(strpos($password, $line) == false)
     {
-      $password = $password.'-'.$line;
+      if($word_count == 0)
+        $password = $line;
+      else
+        $password = $password.'-'.$line;
       $word_count++;
     }
   }
 
-  echo $password.'<br>';
+  //echo $password.'<br>';
+  return $password;
 
 
 }
