@@ -39,20 +39,30 @@
   <div class="container">
     <?php
       $result = generate_xkcd_password($number_of_words);
-      echo $result.'<br>';
+      echo '<br><br>'.$result.'<br><br>';
     ?>
     <form method='POST' action='index.php'>
-      <label for='number_of_words'># of Words</label>
-      <input maxlength=1 type='text' name='number_of_words' id='number_of_words'
-        onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-      <br>
+      <label for='number_of_words'>No. of Words</label>
+      <select name='number_of_words' id='number_of_words'>
+        <option value='1' <?php if($number_of_words=='1') echo 'selected'; ?>>1</option>
+        <option value='2' <?php if($number_of_words=='2') echo 'selected'; ?>>2</option>
+        <option value='3' <?php if($number_of_words=='3') echo 'selected'; ?>>3</option>
+        <option value='4' <?php if($number_of_words=='4') echo 'selected'; ?>>4</option>
+        <option value='5' <?php if($number_of_words=='5') echo 'selected'; ?>>5</option>
+        <option value='6' <?php if($number_of_words=='6') echo 'selected'; ?>>6</option>
+        <option value='7' <?php if($number_of_words=='7') echo 'selected'; ?>>7</option>
+        <option value='8' <?php if($number_of_words=='8') echo 'selected'; ?>>8</option>
+        <option value='9' <?php if($number_of_words=='9') echo 'selected'; ?>>9</option>
+      </select>
+      <br><br>
   		<input type='checkbox' name='add_number' id='add_number' >
-  		<label for='add_number'>Add a number</label>
-  		<br>
+  		<label for='add_number'>Include number</label>
+  		<br><br>
   		<input type='checkbox' name='add_symbol' id='add_symbol' >
-  		<label for='add_symbol'>Add a symbol</label>
-      <br>
+  		<label for='add_symbol'>Include symbol</label>
+      <br><br>
       <input type='submit' value='Generate New Password'>
+      <br><br>
     </form>
 
     <img class="xkcd_img" src='http://imgs.xkcd.com/comics/password_strength.png' alt='xkcd style passwords'>
