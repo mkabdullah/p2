@@ -17,9 +17,13 @@
     // $add_number='off';
     // $add_symbol='off';
 
+    require ('password_generator.php');
+
     $number_of_words = isset($_POST['number_of_words']) ? $_POST['number_of_words'] : '5';
-    $add_number = isset($_POST['add_number']) ? $_POST['add_number'] : 'off';
-    $add_symbol = isset($_POST['add_symbol']) ? $_POST['add_symbol'] : 'off';
+    $words_case = isset($_POST['words_case']) ? $_POST['words_case'] : CONST_LOWER_CASE;
+    $words_separator = isset($_POST['words_separator']) ? $_POST['words_separator'] : CONST_SEPARATOR_HYPHEN;
+    $add_number = isset($_POST['add_number']);
+    $add_symbol = isset($_POST['add_symbol']);
 
     // echo $number_of_words.'<br>';
     // echo $add_number.'<br>';
@@ -32,13 +36,12 @@
     // if(isset($_POST['add_symbol']))
     //   echo $_POST['add_symbol'].'<br>';
 
-  require ('password_generator.php');
 
   ?>
 
   <div class="container">
     <?php
-      $result = generate_xkcd_password($number_of_words);
+      $result = generate_xkcd_password($number_of_words, $words_case, $words_separator, $add_number);
       echo '<br><br>'.$result.'<br><br>';
     ?>
     <form method='POST' action='index.php'>
@@ -55,10 +58,23 @@
         <option value='9' <?php if($number_of_words=='9') echo 'selected'; ?>>9</option>
       </select>
       <br><br>
-  		<input type='checkbox' name='add_number' id='add_number' >
+      <label for='words_case'>Case</label>
+      <select name='words_case' id='words_case'>
+        <option value='<?php echo CONST_LOWER_CASE ?>' <?php if($words_case==CONST_LOWER_CASE) echo 'selected'; ?>>Lower Case Words</option>
+        <option value='<?php echo CONST_CAMEL_CASE ?>' <?php if($words_case==CONST_CAMEL_CASE) echo 'selected'; ?>>Camel Case Words</option>
+        <option value='<?php echo CONST_UPPER_CASE ?>' <?php if($words_case==CONST_UPPER_CASE) echo 'selected'; ?>>Upper Case Words</option>
+      </select>
+      <br><br>
+      <label for='words_separator'>Separator</label>
+      <select name='words_separator' id='words_separator'>
+        <option value='<?php echo CONST_SEPARATOR_HYPHEN ?>' <?php if($words_separator==CONST_SEPARATOR_HYPHEN) echo 'selected'; ?>>Hyphen</option>
+        <option value='<?php echo CONST_SEPARATOR_SPACE ?>' <?php if($words_separator==CONST_SEPARATOR_SPACE) echo 'selected'; ?>>Space</option>
+      </select>
+      <br><br>
+  		<input type='checkbox' name='add_number' id='add_number' <?php if($add_number) echo 'checked'; ?> >
   		<label for='add_number'>Include number</label>
   		<br><br>
-  		<input type='checkbox' name='add_symbol' id='add_symbol' >
+  		<input type='checkbox' name='add_symbol' id='add_symbol' <?php if($add_symbol) echo 'checked'; ?>>
   		<label for='add_symbol'>Include symbol</label>
       <br><br>
       <input type='submit' value='Generate New Password'>
