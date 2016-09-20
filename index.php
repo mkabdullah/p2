@@ -13,9 +13,6 @@
 <body>
 
   <?php
-    // $number_of_words = 5;
-    // $add_number='off';
-    // $add_symbol='off';
 
     require ('password_generator.php');
 
@@ -25,23 +22,11 @@
     $add_number = isset($_POST['add_number']);
     $add_symbol = isset($_POST['add_symbol']);
 
-    // echo $number_of_words.'<br>';
-    // echo $add_number.'<br>';
-    // echo $add_symbol.'<br>';
-
-    // if(isset($_POST['number_of_words']))
-    //   echo $_POST["number_of_words"].'<br>';
-    // if(isset($_POST['add_number']))
-    //   echo $_POST['add_number'].'<br>';
-    // if(isset($_POST['add_symbol']))
-    //   echo $_POST['add_symbol'].'<br>';
-
-
   ?>
 
   <div class="container">
     <?php
-      $result = generate_xkcd_password($number_of_words, $words_case, $words_separator, $add_number);
+      $result = generate_xkcd_password($number_of_words, $words_case, $words_separator, $add_number, $add_symbol);
       echo '<br><br>'.$result.'<br><br>';
     ?>
     <form method='POST' action='index.php'>

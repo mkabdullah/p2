@@ -10,8 +10,10 @@ define('CONST_LOWER_CASE', 'Lower Case');
 define('CONST_SEPARATOR_HYPHEN', '-');
 define('CONST_SEPARATOR_SPACE', ' ');
 
-function generate_xkcd_password($number_of_words, $case, $separator, $include_number)
+function generate_xkcd_password($number_of_words, $case, $separator, $include_number, $include_sp_char)
 {
+  $special_chars = array('@', '$', '#', '&', '%');
+
   if(!is_numeric($number_of_words))
   {
     return 'Number of words input should be numeric!';
@@ -30,6 +32,9 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
 
   $index_of_word_with_a_number = rand(1, $number_of_words);
   $random_number = rand(0, 9);
+
+  $index_of_word_with_sp_char = rand(1, $number_of_words);
+  $sp_char = $special_chars[rand(0, count($special_chars) - 1)];
 
   while($word_count < $number_of_words)
   {
@@ -50,6 +55,11 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
       if($include_number && $word_count == $index_of_word_with_a_number)
       {
         $line = $line.$random_number;
+      }
+
+      if($include_sp_char && $word_count == $index_of_word_with_sp_char)
+      {
+        $line = $line.$sp_char;
       }
 
       if($word_count == 1)
