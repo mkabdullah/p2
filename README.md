@@ -31,3 +31,6 @@ Project code is available at [Github](https://github.com/mkabdullah/p2)
 ## Project Demo
 
 The project demo video is hosted [here](https://www.youtube.com/watch?v=IBIFS2pegzk)
+
+## Credits
+The word list for this project was copied from the following public Git location [Git](https://github.com/first20hours/google-10000-english)
