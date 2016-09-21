@@ -58,9 +58,6 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
   while($word_count < $number_of_words)
   {
 
-    #increment the word counter
-    $word_count++;
-    
     #get a random word from the words array, lowercase it, and trim it
     $line = trim(strtolower($lines[rand(0, count($lines) - 1)]));
 
@@ -68,6 +65,9 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
     #if it does, just ignore it. Also check if it is longer than 3 chars
     if(strpos($password, $line) == false && strlen($line) > 3)
     {
+      #increment the word counter
+      $word_count++;
+      
       #if CamelCase result is required, change the case to CamelCase
       if($case == CONST_CAMEL_CASE)
       {
