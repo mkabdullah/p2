@@ -3,8 +3,9 @@
 #Author Muhammad Kaleem Abdullah
 
 #setting Error reporting to report all the errors
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+#commenting out for deployment to the live server
+#error_reporting(E_ALL);
+#ini_set('display_errors', 1);
 
 #define some useful constants
 define('CONST_CAMEL_CASE', 'Camel Case');
