@@ -1,5 +1,7 @@
 # P2 -- XKCD Password Generator
 
+## Author: Muhammad Kaleem Abdullah
+
 ## Description
 
 This is my second project for the course CSCI E-15 Dynamic Web Applications. The project provides the following functionality:
@@ -17,10 +19,10 @@ This is my second project for the course CSCI E-15 Dynamic Web Applications. The
 It is a simple program but it follows "separation of concerns" design principle. It has two files:
 
 1. index.php
-                This file generates the HTML for the browser. It creates various options for the user to input, processes those input values, calls the password generator function, and displays the generated password back to the user. If the password generator function returns an error message, it also displays that message to the user. So basically this acts a a View and Controller.
+                This file generates the HTML for the browser. It provides various options for the user to input, processes those input values, calls the password generator function, and displays the generated password back to the user. If the password generator function returns an error message, it also displays that message to the user. So basically this acts as a View and Controller.
 
-2. generate_xkcd_password.php
-                This file contains the php function 'generate_xkcd_password()' to generate the passowrd based on the specification given by the user's input. It uses a file with commonly used English words to generate a password of requried word length.
+2. password_generator.php
+                This is is the business logic file. It contains the php function 'generate_xkcd_password()' to generate passwords based on the specification given by the user's input. It uses a file with commonly used English words to generate a password of requried word length. 
 
 
 ## Where is it?
