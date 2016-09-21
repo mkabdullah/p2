@@ -34,7 +34,7 @@
       #display the generated password (or an error message, if that is what the function returned)
       echo '<br><br>'.$result.'<br><br>';
     ?>
-    <form method='POST' action='index.php'>
+    <form method='POST'>
       <label for='number_of_words'>No. of Words</label>
       <select name='number_of_words' id='number_of_words'>
         <option value='1' <?php if($number_of_words=='1') echo 'selected'; ?>>1</option>
