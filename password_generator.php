@@ -14,7 +14,10 @@ define('CONST_LOWER_CASE', 'Lower Case');
 define('CONST_SEPARATOR_HYPHEN', '-');
 define('CONST_SEPARATOR_SPACE', ' ');
 
-
+/*A function to generate xkcd password. If everthing goes well, it returns an string containing
+the generated password. If there is problems with the input, then it returns an error string
+starting with tag 'ERR:'
+*/
 function generate_xkcd_password($number_of_words, $case, $separator, $include_number, $include_sp_char)
 {
   #define the special characters to be used
