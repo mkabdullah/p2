@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>Muhammad Abdullah - P2 - XKCD Password Generator</title>
+    <title>P2 - XKCD Password Generator</title>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +14,10 @@
 
   <?php
 
+    #add the password generator module
     require ('password_generator.php');
 
+    #get values from POST user input
     $number_of_words = isset($_POST['number_of_words']) ? $_POST['number_of_words'] : '5';
     $words_case = isset($_POST['words_case']) ? $_POST['words_case'] : CONST_LOWER_CASE;
     $words_separator = isset($_POST['words_separator']) ? $_POST['words_separator'] : CONST_SEPARATOR_HYPHEN;
@@ -26,7 +28,10 @@
 
   <div class="container">
     <?php
+      #call the function from password generator module to generate a new password
       $result = generate_xkcd_password($number_of_words, $words_case, $words_separator, $add_number, $add_symbol);
+
+      #display the generated password (or an error message, if that is what the function returned)
       echo '<br><br>'.$result.'<br><br>';
     ?>
     <form method='POST' action='index.php'>
