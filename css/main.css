@@ -4,6 +4,33 @@
     width: 50%;
 }
 
+.green_msg {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    border: 1px solid #D8D8D8;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Verdana;
+    font-size: 18px;
+}
+
+.red_msg {
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
+    margin: auto;
+    width: 75%;
+    border: 1px solid #D8D8D8;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Verdana;
+    font-size: 18px;
+
+}
+
 .xkcd_img{
     width:100%;
     max-height: 400px;

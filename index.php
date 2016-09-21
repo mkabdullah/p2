@@ -32,7 +32,16 @@
       $result = generate_xkcd_password($number_of_words, $words_case, $words_separator, $add_number, $add_symbol);
 
       #display the generated password (or an error message, if that is what the function returned)
-      echo '<br><br>'.$result.'<br><br>';
+      if(strpos($result, 'ERR:') === false)
+      {
+        #if there is no error, display the result in a green box
+        echo '<br><br><div class="green_msg">'.$result.'</div><br><br>';
+      }
+      else
+      {
+        #if there is error, display it in a red box
+        echo '<br><br><div class="red_msg">'.str_replace('ERR: ', '', $result).'</div><br><br>';
+      }
     ?>
     <form method='POST'>
       <label for='number_of_words'>No. of Words</label>

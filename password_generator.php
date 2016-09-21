@@ -23,13 +23,13 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
   #the number of words input value should be numeric
   if(!is_numeric($number_of_words))
   {
-    return 'Number of words input should be numeric!';
+    return 'ERR: Number of words input should be numeric!';
   }
 
   #number of words input should be b/w 1 and 9
   if($number_of_words < 1 || $number_of_words > 9)
   {
-    return 'Number of words input should be between 1 & 9!';
+    return 'ERR: Number of words input should be between 1 & 9!';
   }
 
 
@@ -63,11 +63,11 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
 
     #check if the new word alreay exists in our password
     #if it does, just ignore it. Also check if it is longer than 3 chars
-    if(strpos($password, $line) == false && strlen($line) > 3)
+    if(strpos($password, $line) === false && strlen($line) > 3)
     {
       #increment the word counter
       $word_count++;
-      
+
       #if CamelCase result is required, change the case to CamelCase
       if($case == CONST_CAMEL_CASE)
       {
