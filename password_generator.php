@@ -40,7 +40,6 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
 
 
   #read the words database file and move all the lines into an array
-  #$lines = file('/Users/kaleem/dict/words', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
   $lines = file('./data/google-10000-english-usa.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
   #variable declarations
