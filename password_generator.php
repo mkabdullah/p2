@@ -13,8 +13,8 @@ define('CONST_UPPER_CASE', 'Upper Case');
 define('CONST_LOWER_CASE', 'Lower Case');
 define('CONST_SEPARATOR_HYPHEN', '-');
 define('CONST_SEPARATOR_SPACE', ' ');
-define('MIN_WORD_LENGTH', 4);
-define('MAX_WORD_LENGTH', 10);
+define('CONST_MIN_WORD_LENGTH', 4);
+define('CONST_MAX_WORD_LENGTH', 10);
 
 /*A function to generate xkcd password. If everthing goes well, it returns an string containing
 the generated password. If there is problems with the input, then it returns an error string
@@ -71,8 +71,8 @@ function generate_xkcd_password($number_of_words, $case, $separator, $include_nu
     #if it does, just ignore it. Also check if it is within
     #the proper world length range
     if(strpos($password, $line) === false
-      && strlen($line) >= MIN_WORD_LENGTH
-      && strlen($line) <= MAX_WORD_LENGTH)
+      && strlen($line) >= CONST_MIN_WORD_LENGTH
+      && strlen($line) <= CONST_MAX_WORD_LENGTH)
     {
       #increment the word counter
       $word_count++;
